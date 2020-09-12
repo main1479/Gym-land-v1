@@ -1,0 +1,769 @@
+// ======================================
+// colors ======
+$color-primary:#F24C00;
+$color-secondary:#36334E;
+$color-yoga:#FFDC2A;
+$color-cardio:#2AFFB6;
+$color-strength:#FF2A6B;
+// ======================================
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    // overflow-x: hidden;
+
+    @media only screen and (max-width:1200px){
+        font-size: 58%;
+    }
+
+    @media only screen and (max-width:992px){
+        font-size: 54%;
+    }
+
+    @media only screen and (max-width:768px){
+        font-size: 50%;
+    }
+}
+
+body{
+    font-size: 1.6rem;
+    color: $color-secondary;
+    background: #f7f7f7;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.row{
+    width: 90%;
+    max-width: 114rem;
+    margin: 0 auto;
+}
+
+
+
+// ==========================================
+// Reusable Components ======================
+// ==========================================
+
+// ============================
+// Typography =============
+.heading-2{
+    font-size: 6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+
+    &::after{
+        content: '';
+        width: 10rem;
+        height: .5rem;
+        border-radius: 3rem;
+        background: $color-primary;
+        display: block;
+        margin: 2rem auto;
+    }
+
+    @media only screen and (max-width:768px){
+            font-size: 4.5rem;
+
+            &::after{
+                width: 8rem;
+            }
+    }
+}
+
+
+
+
+
+
+
+// =============================
+// buttons ===============
+
+.btn{
+    &,
+    &:link,
+    &:visited{
+        display: inline-block;
+        text-decoration: none;
+        color:inherit;
+        cursor: pointer;
+        font-weight: 500;
+        text-transform: capitalize;
+        font-size: 2rem;
+        line-height: 2rem;
+        border: 0;
+    }
+}
+
+.btn-round{
+    &,
+    &:link,
+    &:visited{
+        background: $color-primary;
+        padding: 1rem 5rem;
+        border-radius: 100px;
+        border: 1px solid #fff;
+        color: #fff;
+
+        &:hover{
+            background: $color-secondary;
+        }
+    }
+}
+
+.btn-white{
+    background: #fff;
+    padding: 1rem 3rem;
+    border-radius: 4px;
+    span{
+        transition: all .3s;
+        margin-left:3px;
+        font-size: 3rem;
+        line-height: 0;
+    }
+
+    &:hover{
+        span{
+            margin-left: 8px;
+        }
+    }
+}
+
+
+// ================================
+// animations =======================
+
+@keyframes scale {
+    0%{
+        transform: scale(1);
+        opacity:.6;
+    }
+    
+    100%{
+        transform:scale(2);
+        opacity:.3;
+    }
+}
+
+
+// ==========================================
+
+
+// =======================================================
+// header area ======================
+.header{
+    height: 100vh;
+    background:url(../img/bg-layer.png) no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .nav{
+        height: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media only screen and (max-width:768px){
+            .logo{
+                width: 10rem;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+
+        .btn-join{
+            background: $color-secondary;
+
+            &:hover{
+                background:$color-primary;
+            }
+        }
+    }
+
+    &__content{
+        margin-top: 25vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(40rem,1fr));
+        grid-gap: 8rem;
+        align-items: center;
+
+        &-text{
+            .hero-text{
+                font-size: 10rem;
+                color: #fff;
+                text-transform: uppercase;
+                line-height: 6.5rem;
+                font-weight: 500;
+                span{
+                    font-size: 5rem;
+                    color:$color-primary;
+                    
+                }
+
+                @media only screen and (max-width:1200px){
+                    font-size: 8rem;
+                }
+
+                @media only screen and (max-width:768px){
+                    font-size: 6rem;
+                    line-height: 5rem;
+
+                    span{
+                        font-size: 4rem;
+                    }
+                }
+            }
+
+        }
+        &-video{
+            text-align: center;
+            .play-btn{
+                width: 100px;
+                height: 100px;
+                position: relative;
+                border-radius: 50%;
+                background: url(../img/play.svg) center center / cover no-repeat;
+                background-position: center center;
+                background-repeat: no-repeat;
+
+                &::after{
+                    content:'';
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background:$color-primary;
+                    top: 0;
+                    left: 0;
+                    border-radius: 50%;
+                    opacity: .6;
+                    transform: scale(1.2);
+                    animation: scale 3s linear infinite;
+                   
+                }
+            }
+
+            
+        }
+    }
+}
+// =======================================================
+
+
+// =======================================================
+// ======== menu area ====================================
+.main-nav{
+    max-width: 114rem;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    height: 7rem;
+    padding: 0 2rem;
+    background: $color-secondary;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9;
+    box-shadow: 0 0 2rem rgba($color-secondary, .2);
+    top: 3.5rem;
+    transform: translateY(-50%);
+    position: -webkit-sticky;
+    position: sticky;
+    
+
+    .nav-menu{
+        display: flex;
+        @media only screen and (max-width:768px){
+            display: none;
+        }
+        
+        li{
+            &:not(:last-child){
+                margin-right: 3rem;
+            }
+
+            a{
+                font-size: 2rem;
+                color: #fff;
+            }
+        }
+    }
+
+
+    .mobile-menu{
+        display: none;
+
+
+        .toggler{
+            width: 5rem;
+            height: 5rem;
+            cursor: pointer;
+        }
+        .button{
+            width: 4.5rem;
+            height: 2px;
+            position: relative;
+            background: #fff;
+            transform: translateY(2.5rem);
+
+            &::after{
+                content:'';
+                position: absolute;
+                width: 3.5rem;
+                height: 2px;
+                background: #fff;
+                top: 1.2rem;
+                right: 0;
+            }
+
+            &::before{
+                content:'';
+                position: absolute;
+                width: 3.5rem;
+                height: 2px;
+                background: #fff;
+                top: -1.2rem;
+                right: 0;
+            }
+        }
+
+
+        .nav{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100vh;
+            overflow: hidden;
+            background:$color-secondary;
+            color:#fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: all .5s cubic-bezier(0,1.86,.83,.67);
+
+            li{
+                margin-bottom: 2rem;
+
+                a:link,
+                a:visited{
+                    font-size: 3rem;
+                    color:#fff;
+                    opacity: .7;
+                    transition: all .3s;
+
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .close{
+                position: absolute;
+                top: 20px;
+                right:20px;
+                font-size: 6rem;
+                font-weight: 300;
+                line-height: 0;
+                cursor: pointer;
+            }
+        }
+
+        &.active{
+            .nav{
+                width: 50%;
+            }
+        }
+
+
+        @media only screen and (max-width:768px){
+            display:block;
+        }
+
+    }
+
+
+    
+}
+
+
+
+
+// =======================================================
+
+
+// =======================================================
+// classes ===============================================
+
+.classes{
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+
+
+    .class__cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+        grid-gap: 3rem;
+        margin-top: 10rem;
+        justify-content: center;
+    }
+
+
+    .class__card{
+        text-align: center;
+        background: #fff;
+        box-shadow: 0 0 40px rgba($color-secondary, .1);
+        padding: 4rem 3rem;
+        border-radius: 4px;
+        overflow: hidden;
+
+        
+
+        &-img{
+            border-radius: 50%;
+            width: 12rem; 
+            height: 12rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            transition: all .8s;
+
+            img{
+                max-width: 100%;
+            }
+        }
+
+        &-head{
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            transition: all .3s;
+        }
+
+        &-description{
+            margin-bottom: 4rem;
+            transition: all .3s;
+        }
+
+        &.yoga:hover{
+            
+            .class__card-img{
+                box-shadow: 0 0 0 40rem $color-yoga;  
+                background:$color-yoga;
+            }
+        }
+        &.cardio:hover{
+            .class__card-img{
+                box-shadow: 0 0 0 40rem $color-cardio;  
+                background:$color-cardio;
+            }
+        }
+        &.strength:hover{
+            .class__card-img{
+                box-shadow: 0 0 0 40rem $color-strength;  
+                background:$color-strength;
+            }
+        }
+
+
+    }
+}
+
+// =======================================================
+
+
+// =======================================================
+// trainers area =========================
+
+.trainers{
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+
+
+    .trainer__cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+        grid-gap: 3rem;
+        margin-top: 10rem;
+        justify-content: center;
+    }
+
+    .trainer__card{
+        text-align: center;
+        background: #fff;
+        box-shadow: 0 0 40px rgba($color-secondary, .1);
+        border-radius: 4px;
+        
+        &.yoga{
+            background:$color-yoga;
+        }
+        &.cardio{
+            background:$color-cardio;
+        }
+        &.strength{
+            background:$color-strength;
+        }
+
+        .img{
+            transition: all .3s;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+                transition: all .3s;
+            }
+        }
+
+        &:hover{
+            .img{
+                img{
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                }
+            }
+        }
+
+
+        .content{
+            padding: 3rem 3rem;
+            .name{
+                color:#fff;
+                font-size: 2.8rem;
+                font-weight: 500;
+                text-transform: capitalize;
+            }
+
+            .title{
+                font-size: 1.8rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                text-transform: capitalize;
+            }
+
+            .about__trainer{
+                margin-bottom: 3rem;
+            }
+        }
+
+    }
+}
+
+// =======================================================
+
+
+// =======================================================
+// about-us area =======================
+
+.about{
+    margin-bottom: 10rem;
+
+
+    &__contents{
+        margin-top: 10rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(35rem,1fr));
+        grid-gap: 5rem;
+        align-items: center;
+    }
+
+    &__imgs{
+        .img{
+            width: 65%;
+            box-shadow: 0 0 50px rgba($color-secondary, .2);
+
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+
+            &-2{
+                transform: translate(50%,-20%);
+            }
+        }
+
+    }
+
+
+    &__content{
+
+        &-head{
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        &-description{
+            margin-bottom: 4rem;
+        }
+
+        .btn-primary{
+            background:$color-primary;
+            color: #fff;
+            transition: all .3s;
+
+            &:hover{
+                transform:translateY(-5px)
+            }
+        }
+    }
+
+}
+
+
+// =======================================================
+
+
+// =======================================================
+// about-services area ====================
+
+.about-services{
+
+
+    .services{
+        background:$color-secondary;
+        color: #fff;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+        grid-row-gap: 5rem;
+        justify-items: center;
+        align-items: end;
+        padding: 3rem 2rem;
+        text-align: center;
+        transform: translateY(50%);
+
+        @media only screen and (max-width:575px){
+            transform: translateY(0%);
+            margin-bottom: 5rem;
+        }
+    }
+
+    .service{
+        img{
+            width: 4rem;
+            margin-bottom: 1rem;
+        }
+        &-head{
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
+}
+
+// =======================================================
+
+
+// =======================================================
+// CTA area ======================
+.cta{
+    padding-top: 25rem;
+    padding-bottom: 10rem;
+    background: url(../img/cta-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    text-align: center;
+
+    @media only screen and (max-width:575px){
+        padding-top: 10rem;
+    }
+
+    .heading-2{
+        color: #fff;
+    }
+
+    .btn{
+        margin-top: 4rem;
+        padding: 1.3rem 7rem;
+    }
+}
+
+// =======================================================
+
+
+// =======================================================
+// Footer area ==================
+.footer{
+    background:$color-secondary;
+    color: #fff;
+
+    .footer__contents{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media only screen and (max-width:575px){
+            flex-wrap: wrap;
+        }
+        
+
+        .footer__logo{
+            width: 8rem;
+            margin-right: 3rem;
+            img{
+                width: 100%;
+            }
+        }
+
+        .copyright{
+            margin-right: 3rem;
+        }
+
+        .cradit{
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            display: inline-block;
+            
+            span{
+                font-size: 2rem;
+                text-transform: uppercase;
+            }
+
+            @media only screen and (max-width:575px){
+                justify-self: center;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    }
+}
+// =======================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
